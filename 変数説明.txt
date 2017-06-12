@@ -5,3 +5,5 @@ flag3[]→一番外の円のオンオフ
 
 コメントのDraw Circle が円を描写してる位置
 Main Circleがグルグル回ってるやつの描写
+
+prev_flag→前のflag（previpus flag）を保存することで、連打防止する

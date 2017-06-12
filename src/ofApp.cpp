@@ -65,7 +65,7 @@ void ofApp::setup(){
     // replace the string below with the serial port for your Arduino board
     // you can get this from the Arduino application or via command line
     // for OSX, in your terminal type "ls /dev/tty.*" to get a list of serial devices
-    ard.connect("/dev/cu.usbmodem1411", 57600);
+    ard.connect("/dev/cu.usbmodem1461", 57600);
     
     // listen for EInitialized notification. this indicates that
     // the arduino is ready to receive commands and it is safe to
@@ -618,249 +618,348 @@ void ofApp::buttonArduino(){
     switch(aflag){
         case 0:
             if(800 < pin0 && pin0 <= 1023){
-                if(flag[0]==0){
-                    flag[0]=1;
-                    break;
+                if(!(prev_flag==0)){
+                    prev_flag=0;
+                    if(flag[0]==0){
+                        flag[0]=1;
+                        break;
+                    }
+                    else if(flag[0]==1){
+                        flag[0]=0;
+                        break;
+                    }
                 }
-                else if(flag[0]==1){
-                    flag[0]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(600 < pin0 && pin0 <= 650){
-                if(flag[1]==0){
-                    flag[1]=1;
-                    break;
+                if(!(prev_flag==1)){
+                    prev_flag=1;
+                    if(flag[1]==0){
+                        flag[1]=1;
+                        break;
+                    }
+                    else if(flag[1]==1){
+                        flag[1]=0;
+                        break;
+                    }
                 }
-                else if(flag[1]==1){
-                    flag[1]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(350 < pin0 && pin0 <= 420){
-                if(flag[2]==0){
-                    flag[2]=1;
-                    break;
+                if(!(prev_flag==2)){
+                    prev_flag=2;
+                    if(flag[2]==0){
+                        flag[2]=1;
+                        break;
+                    }
+                    else if(flag[2]==1){
+                        flag[2]=0;
+                        break;
+                    }
                 }
-                else if(flag[2]==1){
-                    flag[2]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(180 < pin0 && pin0 <= 250){
-                if(flag[3]==0){
-                    flag[3]=1;
-                    break;
+                if(!(prev_flag==3)){
+                    prev_flag=3;
+                    if(flag[3]==0){
+                        flag[3]=1;
+                        break;
+                    }
+                    else if(flag[3]==1){
+                        flag[3]=0;
+                        break;
+                    }
                 }
-                else if(flag[3]==1){
-                    flag[3]=0;
-                    break;
-                }
+                else{break;}
             }
             if(800 < pin1 && pin1 <= 1023){
-                if(flag[4]==0){
-                    flag[4]=1;
-                    break;
+                if(!(prev_flag==4)){
+                    prev_flag=0;
+                    if(flag[4]==4){
+                        flag[4]=1;
+                        break;
+                    }
+                    else if(flag[4]==1){
+                        flag[4]=0;
+                        break;
+                    }
                 }
-                else if(flag[4]==1){
-                    flag[4]=0;
-                    break;
-                }
-            }
+                else{break;}
+                    }
             else if(600 < pin1 && pin1 <= 650){
-                if(flag[5]==0){
-                    flag[5]=1;
-                    break;
+                if(!(prev_flag==5)){
+                    prev_flag=5;
+                    if(flag[5]==0){
+                        flag[5]=1;
+                        break;
+                    }
+                    else if(flag[5]==1){
+                        flag[5]=0;
+                        break;
+                    }
                 }
-                else if(flag[5]==1){
-                    flag[5]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(350 < pin1 && pin1 <= 420){
-                if(flag[6]==0){
-                    flag[6]=1;
-                    break;
+                if(!(prev_flag==6)){
+                    prev_flag=6;
+                    if(flag[6]==0){
+                        flag[6]=1;
+                        break;
+                    }
+                    else if(flag[6]==1){
+                        flag[6]=0;
+                        break;
+                    }
                 }
-                else if(flag[6]==1){
-                    flag[6]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(180 < pin1 && pin1 <= 250){
-                if(flag[7]==0){
-                    flag[7]=1;
-                    break;
+                if(!(prev_flag==7)){
+                    prev_flag=7;
+                    if(flag[7]==0){
+                        flag[7]=1;
+                        break;
+                    }
+                    else if(flag[7]==1){
+                        flag[7]=0;
+                        break;
+                    }
                 }
-                else if(flag[7]==1){
-                    flag[7]=0;
-                    break;
-                }
+                else{break;}
             }
+            else{prev_flag=10;}
             
         case 1:
             if(800 < pin0 && pin0 <= 1023){
-                if(flag2[0]==0){
-                    flag2[0]=1;
-                    break;
+                if(!(prev_flag==0)){
+                    prev_flag=0;
+                    if(flag2[0]==0){
+                        flag2[0]=1;
+                        break;
+                    }
+                    else if(flag2[0]==1){
+                        flag2[0]=0;
+                        break;
+                    }
                 }
-                else if(flag2[0]==1){
-                    flag2[0]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(600 < pin0 && pin0 <= 650){
-                if(flag2[1]==0){
-                    flag2[1]=1;
-                    break;
+                if(!(prev_flag==1)){
+                    prev_flag=1;
+                    if(flag2[1]==1){
+                        flag2[1]=1;
+                        break;
+                    }
+                    else if(flag2[1]==1){
+                        flag2[1]=0;
+                        break;
+                    }
                 }
-                else if(flag2[1]==1){
-                    flag2[1]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(350 < pin0 && pin0 <= 420){
-                if(flag2[2]==0){
-                    flag2[2]=1;
-                    break;
+                if(!(prev_flag==2)){
+                    prev_flag=2;
+                    if(flag2[2]==0){
+                        flag2[2]=1;
+                        break;
+                    }
+                    else if(flag2[2]==1){
+                        flag2[2]=0;
+                        break;
+                    }
                 }
-                else if(flag2[2]==1){
-                    flag2[2]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(180 < pin0 && pin0 <= 250){
-                if(flag2[3]==0){
-                    flag2[3]=1;
-                    break;
+                if(!(prev_flag==3)){
+                    prev_flag=3;
+                    if(flag2[3]==0){
+                        flag2[3]=1;
+                        break;
+                    }
+                    else if(flag2[3]==1){
+                        flag2[3]=0;
+                        break;
+                    }
                 }
-                else if(flag2[3]==1){
-                    flag2[3]=0;
-                    break;
-                }
+                else{break;}
             }
             if(800 < pin1 && pin1 <= 1023){
-                if(flag2[4]==0){
-                    flag2[4]=1;
-                    break;
+                if(!(prev_flag==4)){
+                    prev_flag=4;
+                    if(flag2[4]==0){
+                        flag2[4]=1;
+                        break;
+                    }
+                    else if(flag2[4]==1){
+                        flag2[4]=0;
+                        break;
+                    }
                 }
-                else if(flag2[4]==1){
-                    flag2[4]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(600 < pin1 && pin1 <= 650){
-                if(flag2[5]==0){
-                    flag2[5]=1;
-                    break;
+                if(!(prev_flag==5)){
+                    prev_flag=5;
+                    if(flag2[5]==0){
+                        flag2[5]=1;
+                        break;
+                    }
+                    else if(flag[5]==1){
+                        flag[5]=0;
+                        break;
+                    }
                 }
-                else if(flag[5]==1){
-                    flag[5]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(350 < pin1 && pin1 <= 420){
-                if(flag2[6]==0){
-                    flag2[6]=1;
-                    break;
+                if(!(prev_flag==6)){
+                    prev_flag=6;
+                    if(flag2[6]==0){
+                        flag2[6]=1;
+                        break;
+                    }
+                    else if(flag2[6]==1){
+                        flag2[6]=0;
+                        break;
+                    }
                 }
-                else if(flag2[6]==1){
-                    flag2[6]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(180 < pin1 && pin1 <= 250){
-                if(flag2[7]==0){
-                    flag2[7]=1;
-                    break;
+                if(!(prev_flag==7)){
+                    prev_flag=7;
+                    if(flag2[7]==0){
+                        flag2[7]=1;
+                        break;
+                    }
+                    else if(flag2[7]==1){
+                        flag2[7]=0;
+                        break;
+                    }
                 }
-                else if(flag2[7]==1){
-                    flag2[7]=0;
-                    break;
-                }
+                else{break;}
             }
+            else{prev_flag=10;}
             
         case 2:
             if(800 < pin0 && pin0 <= 1023){
-                if(flag3[0]==0){
-                    flag3[0]=1;
-                    break;
+                if(!(prev_flag==0)){
+                    prev_flag=0;
+                    if(flag3[0]==0){
+                        flag3[0]=1;
+                        break;
+                    }
+                    else if(flag3[0]==1){
+                        flag3[0]=0;
+                        break;
+                    }
                 }
-                else if(flag3[0]==1){
-                    flag3[0]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(600 < pin0 && pin0 <= 650){
-                if(flag3[1]==0){
-                    flag3[1]=1;
-                    break;
-            }
-                else if(flag3[1]==1){
-                    flag3[1]=0;
-                    break;
+                if(!(prev_flag==1)){
+                    prev_flag=1;
+                    if(flag3[1]==0){
+                        flag3[1]=1;
+                        break;
+                    }
+                    else if(flag3[1]==1){
+                        flag3[1]=0;
+                        break;
+                    }
                 }
+                else{break;}
             }
             else if(350 < pin0 && pin0 <= 420){
-                if(flag3[2]==0){
-                    flag3[2]=1;
-                    break;
+                if(!(prev_flag==2)){
+                    prev_flag=2;
+                    if(flag3[2]==0){
+                        flag3[2]=1;
+                        break;
+                    }
+                    else if(flag3[2]==1){
+                        flag3[2]=0;
+                        break;
+                    }
                 }
-                else if(flag3[2]==1){
-                    flag3[2]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(180 < pin0 && pin0 <= 250){
-                if(flag3[3]==0){
-                    flag3[3]=1;
-                    break;
+                if(!(prev_flag==3)){
+                    prev_flag=3;
+                    if(flag3[3]==0){
+                        flag3[3]=1;
+                        break;
+                    }
+                    else if(flag3[3]==1){
+                        flag3[3]=0;
+                        break;
+                    }
                 }
-                else if(flag3[3]==1){
-                    flag3[3]=0;
-                    break;
-                }
+                else{break;}
             }
             if(716 < pin1 && pin1 <= 1023){
-                if(flag3[4]==0){
-                    flag3[4]=1;
-                    break;
+                if(!(prev_flag==4)){
+                    prev_flag=4;
+                    if(flag3[4]==0){
+                        flag3[4]=1;
+                        break;
+                    }
+                    else if(flag3[4]==1){
+                        flag3[4]=0;
+                        break;
+                    }
                 }
-                else if(flag3[4]==1){
-                    flag3[4]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(512 < pin1 && pin1 <= 716){
-                if(flag3[5]==0){
-                    flag3[5]=1;
-                    break;
+                if(!(prev_flag==5)){
+                    prev_flag=5;
+                    if(flag3[5]==0){
+                        flag3[5]=1;
+                        break;
+                    }
+                    else if(flag3[5]==1){
+                        flag3[5]=0;
+                        break;
+                    }
                 }
-                else if(flag3[5]==1){
-                    flag3[5]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(307 < pin1 && pin1 <= 512){
-                if(flag3[6]==0){
-                    flag3[6]=1;
-                    break;
+                if(!(prev_flag==6)){
+                    prev_flag=6;
+                    if(flag3[6]==0){
+                        flag3[6]=1;
+                        break;
+                    }
+                    else if(flag3[6]==1){
+                        flag3[6]=0;
+                        break;
+                    }
                 }
-                else if(flag3[6]==1){
-                    flag3[6]=0;
-                    break;
-                }
+                else{break;}
             }
             else if(102 < pin1 && pin1 <= 307){
-                if(flag3[7]==0){
-                    flag3[7]=1;
-                    break;
+                if(!(prev_flag==7)){
+                    prev_flag=7;
+                    if(flag3[7]==0){
+                        flag3[7]=1;
+                        break;
+                    }
+                    else if(flag3[7]==1){
+                        flag3[7]=0;
+                        break;
+                    }
                 }
-                else if(flag3[7]==1){
-                    flag3[7]=0;
-                    break;
-                }
+                else{break;}
             }
+            else{prev_flag=10;}
             
     }
     

@@ -28,6 +28,7 @@ class ofApp : public ofBaseApp{
         void clickArduino();
     
     int aflag;
+    char prev_flag;
     int flag[9] = {0,0,0,0,0,0,0,0,0};
     int flag2[8] = {0,0,0,0,0,0,0,0};
     int flag3[8] = {0,0,0,0,0,0,0,0};
