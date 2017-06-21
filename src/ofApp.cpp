@@ -65,7 +65,7 @@ void ofApp::setup(){
     // replace the string below with the serial port for your Arduino board
     // you can get this from the Arduino application or via command line
     // for OSX, in your terminal type "ls /dev/tty.*" to get a list of serial devices
-    ard.connect("/dev/cu.usbmodem1461", 57600);
+    ard.connect("/dev/cu.usbmodem1411", 57600);
     
     // listen for EInitialized notification. this indicates that
     // the arduino is ready to receive commands and it is safe to
@@ -335,7 +335,6 @@ void ofApp::draw(){
     }
     
     clickArduino();
-    aflagArduino();
     rhythmArduino();
     buttonArduino();
 }
@@ -675,8 +674,8 @@ void ofApp::buttonArduino(){
             }
             if(800 < pin1 && pin1 <= 1023){
                 if(!(prev_flag==4)){
-                    prev_flag=0;
-                    if(flag[4]==4){
+                    prev_flag=4;
+                    if(flag[4]==0){
                         flag[4]=1;
                         break;
                     }
@@ -729,6 +728,22 @@ void ofApp::buttonArduino(){
                 }
                 else{break;}
             }
+            else if(ard.getDigital(inputPinA) == 1){
+                if(!(prev_flag==9)){
+                    prev_flag=9;
+                    if(aflag <2){
+                        aflag += 1;
+                        break;
+                    }
+                    
+                    else if(aflag == 2){
+                        aflag = 0;
+                        break;
+                    }
+                }
+                else{break;}
+            }
+    
             else{prev_flag=10;}
             
         case 1:
@@ -749,7 +764,7 @@ void ofApp::buttonArduino(){
             else if(600 < pin0 && pin0 <= 650){
                 if(!(prev_flag==1)){
                     prev_flag=1;
-                    if(flag2[1]==1){
+                    if(flag2[1]==0){
                         flag2[1]=1;
                         break;
                     }
@@ -809,8 +824,8 @@ void ofApp::buttonArduino(){
                         flag2[5]=1;
                         break;
                     }
-                    else if(flag[5]==1){
-                        flag[5]=0;
+                    else if(flag2[5]==1){
+                        flag2[5]=0;
                         break;
                     }
                 }
@@ -839,6 +854,21 @@ void ofApp::buttonArduino(){
                     }
                     else if(flag2[7]==1){
                         flag2[7]=0;
+                        break;
+                    }
+                }
+                else{break;}
+            }
+            else if(ard.getDigital(inputPinA) == 1){
+                if(!(prev_flag==9)){
+                    prev_flag=9;
+                    if(aflag <2){
+                        aflag += 1;
+                        break;
+                    }
+                    
+                    else if(aflag == 2){
+                        aflag = 0;
                         break;
                     }
                 }
@@ -959,6 +989,21 @@ void ofApp::buttonArduino(){
                 }
                 else{break;}
             }
+            else if(ard.getDigital(inputPinA) == 1){
+                if(!(prev_flag==9)){
+                    prev_flag=9;
+                    if(aflag <2){
+                        aflag += 1;
+                        break;
+                    }
+                    
+                    else if(aflag == 2){
+                        aflag = 0;
+                        break;
+                    }
+                }
+                else{break;}
+            }
             else{prev_flag=10;}
             
     }
@@ -1027,18 +1072,6 @@ void ofApp::rhythmArduino(){
     }
 }
 
-//--------------------------------------------------------------
-void ofApp::aflagArduino(){
-    if(ard.getDigital(inputPinA) == 1){
-        if(aflag <2){
-            aflag += 1;
-        }
-        
-        else if(aflag == 2){
-            aflag = 0;
-        }
-    }
-}
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
